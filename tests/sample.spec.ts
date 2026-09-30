@@ -1,0 +1,25 @@
+import{test ,expect} from '@playwright/test'
+test("login",async({page})=>
+{
+await page.goto("https://staging.shoughl.com/en/login")
+await page.locator("#email").fill("admin@shoughl.com")
+await page.locator("#password").fill("admin@2026")
+await page.getByRole("button",{name:"Login",exact:true}).click();
+const title= page.getByTitle("Shoughl — Where talent meets opportunity")
+//await page.getByText('Abhijeet Solanke', { exact: true })
+await page.getByText("Suraj Mahajan",{exact:true})
+const susp= page.getByRole("button",{name:"Suspended"})
+await susp.click()
+//await page.getByRole("heading",{name:"Shoughl — Where talent meets opportunity"}).isVisible()
+ // await page.getByRole("heading",{name:"Users Management"}).isVisible()
+ //await page.getByTitle("Shoughl — here talent meets opportunity.").isVisible()
+//await page.getByText("admin@shoughl.com",{exact:true}).isVisible()
+//await page.getByAltText("Shoughl Admin Logo").isVisible()
+//await page.getByRole("table").getByText("Abhijeet Solanke").click()
+//await page.locator("svg.lucide-chevron-down").click()
+// await page.getByRole("button",{name:"Suspended"}).click()
+//await page.getByRole("button",{name:"Active"}).click()
+//await page.getByText("Suspended", {exact:true}).click()
+//await page.locator('button[type="submit"]').click()
+//await page.locator(".text-sm").click()
+})
